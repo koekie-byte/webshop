@@ -13,7 +13,7 @@ function getProductFromButton(button) {
     const productCard = button.closest('.card');
     const imageElement = productCard.querySelector('img');
     const nameElement = productCard.querySelector('h3');
-    const priceElement = productCard.querySelector('p');
+    const priceElement = productCard.querySelector('span');
 
     const product = {
         image: imageElement.src,
@@ -70,8 +70,12 @@ fetch('product.json')
             productCard.appendChild(nameElement);
 
             const priceElement = document.createElement('p');
-            priceElement.textContent = 'Price: $' + product.price;
+            priceElement.textContent = 'Price: $';
             productCard.appendChild(priceElement);
+
+            const priceValueElement = document.createElement('span');
+            priceValueElement.textContent = product.price;
+            priceElement.appendChild(priceValueElement);
 
             const addToCartButton = document.createElement('button');
             addToCartButton.textContent = 'Add to Cart';
