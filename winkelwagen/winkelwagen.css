@@ -1,0 +1,8 @@
+.product-info {
+    display: flex;
+    align-items: center;
+}
+
+.product-info p {
+    margin-right: 10px;
+}
