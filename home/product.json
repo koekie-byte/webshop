@@ -28,5 +28,17 @@
         "name": "renwiel",
         "price": "19.99",
         "image": "https://th.bing.com/th/id/R.461367c4b0b15e5f5ad3be5efe42eb1a?rik=qme41SGROa62Kg&riu=http%3a%2f%2fwww.gerbilshopqueenies.nl%2fimages%2fproductimages%2fsmaller%2fhu_22674.jpg&ehk=UBIZUP%2b%2fr3TAL%2bFbJx%2b56W2HmCSdg%2fgFG7c1oB0sgUM%3d&risl=&pid=ImgRaw&r=0"
+    },
+    {
+        "id": 5,
+        "name": "hamsterbal",
+        "price": "12.99",
+        "image": "https://th.bing.com/th?id=OPE.uKrDiQVUWPcCdw300C300&w=173&h=174&dpr=1.3&pid=21.1"
+    },
+    {
+        "id": 6,
+        "name": "kattengrind",
+        "price": "10.75",
+        "image": "https://th.bing.com/th?id=OPE.FoCJ280Y%2bszqZg300C300&w=160&h=220&dpr=1.3&pid=21.1"
     }
 ]

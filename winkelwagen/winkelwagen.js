@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 productQuantities[productName] = {
                     name: productName,
                     quantity: 1,
-                    totalPrice: productPrice
+                    totalPrice: productPrice,
                 };
             }
         });
@@ -60,3 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     totalPriceContainer.textContent = `Total Price: €${totalPrice.toFixed(2)}`;
 });
+function clearStorageAndRefresh() {
+    localStorage.clear();
+    location.reload();
+}
