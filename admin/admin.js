@@ -1,5 +1,3 @@
-fetch
-
 function saveJSONToFile() {
     var jsonData = JSON.stringify(products);
     console.log('JSON-bestand opgeslagen:', jsonData);
@@ -40,4 +38,3 @@ changeProductPrice(2, 25);
 addProduct({ id: 4, name: 'Product 4', price: 40 });
 removeProduct(1);
 saveJSONToFile();
-
