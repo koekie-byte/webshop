@@ -39,3 +39,15 @@ nav ul li a {
   color: #fff;
   text-decoration: none;
 }
+.product-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+}
+.product-card img {
+  max-width: 100%;
+  height: auto;
+}
