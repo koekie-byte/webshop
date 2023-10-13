@@ -1,40 +1,33 @@
-function saveJSONToFile() {
-    var jsonData = JSON.stringify(products);
-    console.log('JSON-bestand opgeslagen:', jsonData);
+function getProductsFromLocalStorage() {
+    const storedProducts = localStorage.getItem('products');
+    return JSON.parse(storedProducts) || [];
 }
 
-function changeProductPrice(productId, newPrice) {
-    var product = products.find(function (p) {
-        return p.id === productId;
+function getProductsFromJSON(callback) {
+    fetch('product.json')
+        .then(response => response.json())
+        .then(data => callback(data))
+        .catch(error => console.error('Fout bij laden van JSON-bestand: ', error));
+}
+
+function displayProducts(products) {
+    const productList = document.getElementById('productList');
+    productList.innerHTML = '';
+    products.forEach(product => {
+        const listItem = document.createElement('li');
+        listItem.textContent = product.name;
+        productList.appendChild(listItem);
     });
-
-    if (product) {
-        product.price = newPrice;
-        console.log('Prijs gewijzigd:', product);
-    } else {
-        console.log('Product niet gevonden');
-    }
 }
 
-function addProduct(newProduct) {
-    products.push(newProduct);
-    console.log('Product toegevoegd:', newProduct);
-}
+const localProducts = getProductsFromLocalStorage();
 
-function removeProduct(productId) {
-    var index = products.findIndex(function (p) {
-        return p.id === productId;
+if (localProducts.length > 0) {
+    displayProducts(localProducts);
+} else {
+    getProductsFromJSON(products => {
+        displayProducts(products);
+
+        localStorage.setItem('products', JSON.stringify(products));
     });
-
-    if (index !== -1) {
-        var removedProduct = products.splice(index, 1);
-        console.log('Product verwijderd:', removedProduct);
-    } else {
-        console.log('Product niet gevonden');
-    }
 }
-
-changeProductPrice(2, 25);
-addProduct({ id: 4, name: 'Product 4', price: 40 });
-removeProduct(1);
-saveJSONToFile();
