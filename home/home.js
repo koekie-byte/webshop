@@ -10,24 +10,21 @@ function updateCartCount() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('jsonData') == null) {
-        // Plaats de JSON-gegevens in de lokale opslag
+    if (localStorage.getItem('products') == null) {
         fetch('product.json')
             .then((res) => res.json())
             .then((data) => {
-                localStorage.setItem('jsonData', JSON.stringify(data));
+                localStorage.setItem('products', JSON.stringify(data));
                 console.log('JSON data saved to local storage.');
                 loadProductsFromLocalStorage();
             });
     } else {
-        // Roep de functie aan om de producten op de website weer te geven
         loadProductsFromLocalStorage();
     }
 });
 
-// Nu, laad de JSON-gegevens uit de lokale opslag en toon ze op de website:
 function loadProductsFromLocalStorage() {
-    const jsonData = JSON.parse(localStorage.getItem('jsonData'));
+    const jsonData = JSON.parse(localStorage.getItem('products'));
 
     if (!jsonData) {
         console.log('JSON data not found in local storage.');
@@ -64,6 +61,9 @@ function loadProductsFromLocalStorage() {
         productsContainer.appendChild(productCard);
     });
 }
+
+updateCartCount();
+
 
 function getProductFromButton(button) {
     const productCard = button.closest('.card');

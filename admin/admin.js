@@ -1,44 +1,43 @@
-function getProductsFromLocalStorage() {
-    const storedProducts = localStorage.getItem('jsonData');
-    return JSON.parse(storedProducts) || [];
-}
-
-function getProductsFromJSON(callback) {
-    fetch('/home/product.json')
-        .then((response) => response.json())
-        .then((data) => callback(data))
-        .catch((error) => console.error('Fout bij laden van JSON-bestand: ', error));
-}
-
-function removeItem(id) {
-    const products = getProductsFromLocalStorage();
-    const filteredProducts = products.filter((item) => item.id != id);
-    localStorage.setItem('jsonData', JSON.stringify(filteredProducts));
-}
-
-function displayProducts() {
-    const products = getProductsFromLocalStorage();
-    const productList = document.getElementById('products');
-    productList.innerHTML = '';
-    products.forEach((product) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = product.name;
-        listItem.id = product.id;
-        listItem.addEventListener('click', (event) => {
-            removeItem(event.target.id);
-            displayProducts();
+fetch("../home/product.json")
+    .then((response) => response.json())
+    .then((data) => {
+        const resetButton = document.getElementById("reset");
+        resetButton.addEventListener("click", function () {
+            localStorage.removeItem("products");
+            localStorage.setItem("products", JSON.stringify(data));
+            window.location.reload();
         });
-        productList.appendChild(listItem);
-    });
-}
 
-const localProducts = getProductsFromLocalStorage();
+        const tableBody = document.getElementById("winkelwagen-body");
+        const productsTemplate = document.getElementById("products-template").content;
 
-if (localProducts.length > 0) {
-    displayProducts();
-} else {
-    getProductsFromJSON((products) => {
-        localStorage.setItem('jsonData', JSON.stringify(products));
-        displayProducts();
+        if (localStorage.getItem("products")) {
+            const products = JSON.parse(localStorage.getItem("products"));
+
+            products.forEach(function (product) {
+                const row = productsTemplate.cloneNode(true).querySelector("tr");
+
+                row.querySelector(".id").textContent = product.id;
+                row.querySelector(".name").textContent = product.name;
+                row.querySelector(".price").textContent = product.price;
+                row.querySelector(".afbeelding").innerHTML = product.foto;
+
+                const editLink = row.querySelector(".edit-link");
+                editLink.href = `../edit/index.html?id=${product.id}`;
+
+                const removeCell = row.querySelector(".remove-cell");
+                removeCell.addEventListener("click", function () {
+                    row.remove();
+                    const index = products.findIndex(function (item) {
+                        return item.id === product.id;
+                    });
+                    if (index !== -1) {
+                        products.splice(index, 1);
+                        localStorage.setItem("products", JSON.stringify(products));
+                    }
+                });
+
+                tableBody.appendChild(row);
+            });
+        }
     });
-}
