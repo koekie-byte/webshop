@@ -23,7 +23,7 @@ fetch("../home/product.json")
                 row.querySelector(".afbeelding").innerHTML = product.foto;
 
                 const editLink = row.querySelector(".edit-link");
-                editLink.href = `../edit/index.html?id=${product.id}`;
+                editLink.href = `../index.html?id=${product.id}`;
 
                 const removeCell = row.querySelector(".remove-cell");
                 removeCell.addEventListener("click", function () {

@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadProductsFromLocalStorage() {
+    console.log('loadproducts')
     const jsonData = JSON.parse(localStorage.getItem('products'));
 
     if (!jsonData) {
@@ -58,23 +59,33 @@ function loadProductsFromLocalStorage() {
         addToCartButton.className = 'add-to-cart';
         productCard.appendChild(addToCartButton);
 
+        addToCartButton.addEventListener('click', () => {
+            console.log('dag');
+            cartItemsCount++;
+            updateCartCount();
+
+            let data = getProductFromButton(addToCartButton);
+            saveProductToCart(data);
+
+            localStorage.setItem('cartItemsCount', cartItemsCount);
+        });
+
         productsContainer.appendChild(productCard);
     });
 }
 
 updateCartCount();
 
-
 function getProductFromButton(button) {
-    const productCard = button.closest('.card');
+    const productCard = button.parentElement;
     const imageElement = productCard.querySelector('img');
     const nameElement = productCard.querySelector('h3');
-    const priceElement = productCard.querySelector('span');
+    const priceValueElement = productCard.querySelector('span');
 
     const product = {
         image: imageElement.src,
         name: nameElement.textContent,
-        price: priceElement.textContent,
+        price: priceValueElement.textContent,
     };
 
     return product;
@@ -93,17 +104,3 @@ function saveProductToCart(product) {
 
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
-
-addToCartButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        cartItemsCount++;
-        updateCartCount();
-
-        const product = getProductFromButton(button);
-        saveProductToCart(product);
-
-        localStorage.setItem('cartItemsCount', cartItemsCount);
-    });
-});
-
-updateCartCount();
