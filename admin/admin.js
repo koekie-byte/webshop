@@ -1,4 +1,4 @@
-fetch("../home/product.json")
+fetch("/home/product.json")
     .then((response) => response.json())
     .then((data) => {
         const resetButton = document.getElementById("reset");
