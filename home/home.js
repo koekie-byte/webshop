@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadProductsFromLocalStorage() {
-    console.log('loadproducts')
+    console.log('loadproducts');
     const jsonData = JSON.parse(localStorage.getItem('products'));
 
     if (!jsonData) {

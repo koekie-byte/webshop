@@ -62,5 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 function clearStorageAndRefresh() {
     localStorage.clear();
-    location.reload();
+    window.location.reload();
 }
+
