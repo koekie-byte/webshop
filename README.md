@@ -34,5 +34,7 @@ admin.css: CSS file for styling the admin page.
 Contributing
 If you would like to contribute to this project, feel free to submit a pull request.
 
+here you can find the website: https://brilliant-gaufre-4ced1c.netlify.app
+and the admin page: https://brilliant-gaufre-4ced1c.netlify.app/admin
 License
 This project is licensed under the MIT License.
