@@ -1,0 +1,62 @@
+[
+    {
+        "id": 0,
+        "name": "Hondenvoer",
+        "price": "29.99",
+        "image": "https://i5.walmartimages.com/asr/832ae97d-149a-4295-ab55-2496d9b264b8_1.67b261ea5ba6202c4ee603c6b53765d7.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff"
+    },
+    {
+        "id": 1,
+        "name": "Kattenvoer",
+        "price": "24.99",
+        "image": "https://www.sligro.nl/image-service/_jcr_content.product.08710255150079.image/1/large.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "hamstervoer",
+        "price": "14.99",
+        "image": "https://s.s-bol.com/imgbase0/imagebase3/large/FC/7/2/8/3/9200000010823827.jpg"
+    },
+    {
+        "id": 3,
+        "name": "voerbak",
+        "price": "9.99",
+        "image": "https://cdn.agradiservices.net/products/390x390/ke-83412.a9dbf1.jpg"
+    },
+    {
+        "id": 4,
+        "name": "renwiel",
+        "price": "19.99",
+        "image": "https://th.bing.com/th/id/R.461367c4b0b15e5f5ad3be5efe42eb1a?rik=qme41SGROa62Kg&riu=http%3a%2f%2fwww.gerbilshopqueenies.nl%2fimages%2fproductimages%2fsmaller%2fhu_22674.jpg&ehk=UBIZUP%2b%2fr3TAL%2bFbJx%2b56W2HmCSdg%2fgFG7c1oB0sgUM%3d&risl=&pid=ImgRaw&r=0"
+    },
+    {
+        "id": 5,
+        "name": "hamsterbal",
+        "price": "12.99",
+        "image": "https://th.bing.com/th?id=OPE.uKrDiQVUWPcCdw300C300&w=173&h=174&dpr=1.3&pid=21.1"
+    },
+    { 
+        "id": 6,
+        "name": "kattengrind",
+        "price": "10.75",
+        "image": "https://th.bing.com/th?id=OPE.FoCJ280Y%2bszqZg300C300&w=160&h=220&dpr=1.3&pid=21.1"
+    },
+    {
+        "id": 7,
+        "name": "bot",
+        "price": "4.29",
+        "image": "https://www.bing.com/th?id=OPE.tjrI67JaIh7tcA300C300&pid=21.1&w=130&h=130&qlt=100&dpr=1,3&bw=6&bc=FFFFFF"
+    },
+    {
+        "id": 8,
+        "name": "catnip",
+        "price": "5,99",
+        "image": "https://www.bing.com/th?id=OPE.VeCcDuNV%2bFiozA300C300&pid=21.1&w=130&h=130&qlt=100&dpr=1,3&bw=6&bc=FFFFFF"
+    },
+    {
+        "id": 9,
+        "name": "tennisbal",
+        "price": "3,99",
+        "image": "https://www.bing.com/th?id=OPE.NCQu3uXHUE85jA300C300&pid=21.1&w=130&h=130&qlt=100&dpr=1,3&bw=6&bc=FFFFFF"
+    }
+]
